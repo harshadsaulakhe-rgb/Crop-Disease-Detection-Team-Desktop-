@@ -575,18 +575,124 @@ def clean_label_name(raw_label: str) -> str:
     return f"{crop}: {condition}"
 
 
-def get_advisory(label: str) -> Dict[str, Any]:
+def get_advisory(label: str, crop: Optional[str] = None) -> Dict[str, Any]:
     """
-    Looks up agricultural advisory by dataset class label or fuzzy match.
-    Returns structured data with defaults if label is not explicitly mapped.
+    Looks up agricultural advisory by dataset class label or fuzzy match,
+    integrated with plant_leaf_disease_database_200plus.json.
     """
+    # ── 1. HEALTHY LEAF CASE ──
+    if label == "HEALTHY_LEAF" or label.endswith("___healthy") or (crop and "healthy" in label.lower()):
+        crop_clean = crop or (label.split("___")[0].replace("_", " ") if "___" in label else "Crop")
+        return {
+            "class_id": f"{crop_clean}___healthy",
+            "display_name": f"{crop_clean} (Healthy)",
+            "crop": crop_clean,
+            "condition": "Healthy Foliage",
+            "pathogen": "None (Disease Free)",
+            "severity": "Healthy",
+            "urgency": "No disease symptoms detected. Maintain regular proactive crop management.",
+            "symptoms": "Uniform vibrant green leaf surface with no lesions, necrosis, or chlorosis.",
+            "organic_remedies": [
+                "Continue applying compost tea or foliar sea-kelp spray every 2-3 weeks for plant vigor.",
+                "Maintain balanced N-P-K soil fertility; avoid excessive nitrogen fertilizer.",
+                "Encourage beneficial predatory insects such as ladybugs, spiders, and lacewings."
+            ],
+            "chemical_treatments": [
+                "No chemical fungicides or bactericides required for healthy crops."
+            ],
+            "preventive_practices": [
+                "Inspect crop canopy twice weekly during early morning for early disease signs.",
+                "Water at the base of plants using drip irrigation; keep foliage dry.",
+                "Ensure proper plant spacing for maximum sunlight penetration and air circulation."
+            ],
+            "favorable_conditions": "Optimal crop growth conditions with good air circulation and balanced soil moisture."
+        }
+
+    # ── 2. Direct lookup in curated DISEASE_ADVISORY_DATABASE ──
     if label in DISEASE_ADVISORY_DATABASE:
         data = dict(DISEASE_ADVISORY_DATABASE[label])
         data["class_id"] = label
         data["display_name"] = clean_label_name(label)
         return data
 
-    # Fuzzy match by condition name
+    # ── 3. Lookup in plant_leaf_disease_database_200plus.json ──
+    try:
+        from utils.disease_database import DiseaseKnowledgeBase
+        db = DiseaseKnowledgeBase.get_instance()
+        entry = db.find_disease_by_class_key(label)
+        if not entry and crop:
+            entry = db.get_disease(crop, label)
+
+        if entry:
+            crop_name = entry.get("crop", crop or "Crop")
+            dis_name = entry.get("disease_name", label)
+            cause = entry.get("cause", "Plant Pathogen")
+            severity = entry.get("severity", "Moderate").title()
+            symptoms = f"{entry.get('symptoms', '')}. Visual features: {entry.get('visual_features', '')}"
+
+            # Determine cause-specific treatments
+            is_fungal = any(k in cause.lower() for k in ["alternaria", "phytophthora", "puccinia", "venturia", "cercospora", "fungus", "mold", "mildew"])
+            is_bacterial = any(k in cause.lower() for k in ["xanthomonas", "pseudomonas", "bacteria", "erwinia", "ralstonia"])
+            is_viral = any(k in cause.lower() for k in ["virus", "viroid", "mosaic", "curl"])
+
+            if is_fungal:
+                organic = [
+                    "Apply copper oxychloride (3 g/L) or Bordeaux mixture (1%) as protective spray.",
+                    "Spray bio-fungicide Trichoderma harzianum or Bacillus subtilis at 7-day intervals.",
+                    "Remove heavily infected leaves and compost/burn them away from fields."
+                ]
+                chemical = [
+                    "Apply Mancozeb 75% WP (2.5 g/L) or Chlorothalonil (2 g/L) as protective contact spray.",
+                    "Use systemic curative fungicide like Azoxystrobin or Difenoconazole if lesions are spreading.",
+                    "Ensure adequate spray coverage on both upper and lower leaf surfaces."
+                ]
+            elif is_bacterial:
+                organic = [
+                    "Spray Copper Hydroxide (2.5 g/L) during early vegetative development.",
+                    "Apply neem cake soil amendment to stimulate antagonistic rhizobacteria.",
+                    "Sterilize all pruning and harvesting tools with 70% alcohol between plants."
+                ]
+                chemical = [
+                    "Apply Copper Oxychloride 50 WP (2.5 g/L) mixed with Streptomycin sulphate (100 ppm).",
+                    "Avoid overhead sprinkler irrigation to stop bacterial splash dissemination."
+                ]
+            elif is_viral:
+                organic = [
+                    "Apply cold-pressed neem oil (5 ml/L) weekly to deter insect vectors (whiteflies, aphids).",
+                    "Install yellow sticky traps (15-20 traps/acre) to monitor and capture vectors.",
+                    "Rogue and bury severely stunted or mottled plants immediately."
+                ]
+                chemical = [
+                    "Spray systemic insecticide (e.g. Imidacloprid 17.8 SL at 0.5 ml/L or Thiamethoxam 25 WG at 0.3 g/L) to manage vector populations.",
+                    "Note: Chemical pesticides do not cure viral infections directly; control insect vectors."
+                ]
+            else:
+                organic = ["Apply neem-based bio-rational formulations and improve field aeration."]
+                chemical = ["Consult local agricultural extension service for registered fungicides."]
+
+            return {
+                "class_id": label,
+                "display_name": f"{crop_name}: {dis_name}",
+                "crop": crop_name,
+                "condition": dis_name,
+                "pathogen": cause,
+                "severity": severity,
+                "urgency": f"Action recommended within 48 hours to suppress {dis_name} spread.",
+                "symptoms": symptoms,
+                "organic_remedies": organic,
+                "chemical_treatments": chemical,
+                "preventive_practices": [
+                    "Practice 2-3 year crop rotation with non-host botanical families.",
+                    "Ensure clean seed stock and certified pathogen-free nursery transplants.",
+                    "Avoid overhead irrigation; water at plant base to keep canopy dry."
+                ],
+                "favorable_conditions": "Warm, humid weather with prolonged leaf wetness.",
+                "similar_diseases": entry.get("similar_diseases", [])
+            }
+    except Exception as e:
+        pass
+
+    # ── 4. Fuzzy match by condition name ──
     for key, advisory in DISEASE_ADVISORY_DATABASE.items():
         if key.lower() == label.lower() or advisory["condition"].lower() == label.lower():
             res = dict(advisory)
@@ -594,7 +700,7 @@ def get_advisory(label: str) -> Dict[str, Any]:
             res["display_name"] = clean_label_name(key)
             return res
 
-    # General fallback advisory
+    # ── 5. General fallback advisory ──
     return {
         "class_id": label,
         "display_name": clean_label_name(label),
@@ -603,7 +709,7 @@ def get_advisory(label: str) -> Dict[str, Any]:
         "pathogen": "Unspecified Plant Pathogen",
         "severity": "Moderate",
         "urgency": "Inspect affected plants and isolate diseased foliage for further diagnostic confirmation.",
-        "symptoms": "Leaf discoloration, spotting, or wilting detected by deep learning computer vision.",
+        "symptoms": "Leaf discoloration, spotting, or lesions detected on foliage.",
         "organic_remedies": [
             "Apply a broad-spectrum botanical spray such as cold-pressed neem oil (5 ml/L).",
             "Spray bio-fungicide containing Bacillus subtilis or Trichoderma spp.",
@@ -623,7 +729,30 @@ def get_advisory(label: str) -> Dict[str, Any]:
 
 
 def list_supported_diseases() -> List[Dict[str, Any]]:
-    """Returns an overview list of all supported crops and diseases with their severity ratings."""
+    """Returns an overview list of all supported crops and diseases from the JSON database."""
+    try:
+        from utils.disease_database import DiseaseKnowledgeBase
+        db = DiseaseKnowledgeBase.get_instance()
+        if db.is_loaded and db.diseases:
+            summary = []
+            for d in db.diseases:
+                crop = d.get("crop", "Unknown")
+                name = d.get("disease_name", "Unknown")
+                class_id = f"{crop}___{name.replace(' ', '_')}"
+                summary.append({
+                    "class_id": class_id,
+                    "crop": crop,
+                    "condition": name,
+                    "severity": d.get("severity", "Moderate").title(),
+                    "pathogen": d.get("cause", "N/A"),
+                    "display_name": f"{crop}: {name}",
+                    "symptoms": d.get("symptoms", "")
+                })
+            return summary
+    except Exception:
+        pass
+
+    # Fallback to local dictionary
     summary_list = []
     for class_id, info in DISEASE_ADVISORY_DATABASE.items():
         summary_list.append({

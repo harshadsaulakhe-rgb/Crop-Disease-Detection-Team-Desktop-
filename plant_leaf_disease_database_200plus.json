@@ -1,0 +1,1282 @@
+{
+  "version": "1.0",
+  "purpose": "Plant leaf disease classification reference",
+  "total_disease_classes": 105,
+  "important_instruction": "This is a reference knowledge base, not a substitute for a validated diagnostic model or expert agronomic diagnosis.",
+  "classes": [
+    {
+      "class_name": "LEAF_NOT_DETECTED",
+      "description": "No recognizable plant leaf is present."
+    },
+    {
+      "class_name": "UNCLEAR_IMAGE",
+      "description": "A leaf is present but image quality, angle, lighting, occlusion or focus is insufficient."
+    },
+    {
+      "class_name": "HEALTHY_LEAF",
+      "description": "Recognizable plant leaf with no convincing disease symptoms."
+    }
+  ],
+  "diseases": [
+    {
+      "crop": "Tomato",
+      "disease_name": "Early Blight",
+      "cause": "Alternaria solani",
+      "symptoms": "brown circular lesions with concentric rings; yellowing",
+      "visual_features": "target-like brown spots; older leaves affected",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Septoria Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Late Blight",
+      "cause": "Phytophthora infestans",
+      "symptoms": "large irregular dark water-soaked lesions; rapid browning",
+      "visual_features": "dark expanding lesions; white growth may appear underneath in humid conditions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Early Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Septoria Leaf Spot",
+      "cause": "Septoria lycopersici",
+      "symptoms": "many small circular spots with gray centers and dark margins",
+      "visual_features": "numerous tiny round lesions; black specks may occur in centers",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Early Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Bacterial Spot",
+      "cause": "Xanthomonas spp.",
+      "symptoms": "small dark brown to black spots, sometimes yellow halos",
+      "visual_features": "tiny irregular lesions; may coalesce",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Speck"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Bacterial Speck",
+      "cause": "Pseudomonas syringae pv. tomato",
+      "symptoms": "very small dark spots with yellow halos",
+      "visual_features": "pinpoint black lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Leaf Mold",
+      "cause": "Passalora fulva",
+      "symptoms": "yellow patches above; olive-gray fungal growth below",
+      "visual_features": "velvety olive growth on underside",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Target Spot",
+      "cause": "Corynespora cassiicola",
+      "symptoms": "brown circular target-like lesions",
+      "visual_features": "concentric rings, often larger than bacterial spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Early Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Mosaic Virus",
+      "cause": "Tomato mosaic virus",
+      "symptoms": "light/dark green mosaic, distortion",
+      "visual_features": "mottled green pattern",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tomato",
+      "disease_name": "Tomato Yellow Leaf Curl Virus",
+      "cause": "TYLCV",
+      "symptoms": "yellowing, upward curling, stunting",
+      "visual_features": "small curled leaves; yellow margins/veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Mosaic Virus"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Potato",
+      "disease_name": "Early Blight",
+      "cause": "Alternaria solani",
+      "symptoms": "brown lesions with concentric rings and yellow halo",
+      "visual_features": "target-like lesions on older leaves",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Late Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Potato",
+      "disease_name": "Late Blight",
+      "cause": "Phytophthora infestans",
+      "symptoms": "water-soaked dark lesions and rapid necrosis",
+      "visual_features": "irregular brown-black lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Early Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Potato",
+      "disease_name": "Blackleg",
+      "cause": "Pectobacterium spp.",
+      "symptoms": "wilting, yellowing and dark stem bases",
+      "visual_features": "leaf collapse associated with stem rot",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Wilt"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Potato",
+      "disease_name": "Potato Virus Y",
+      "cause": "Potato virus Y",
+      "symptoms": "mosaic, mottling and leaf necrosis",
+      "visual_features": "vein-associated mosaic or streaking",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Mosaic Virus"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Potato",
+      "disease_name": "Potato Leafroll Virus",
+      "cause": "PLRV",
+      "symptoms": "leaf rolling, stiff leaves and yellowing",
+      "visual_features": "upward rolled leaflets",
+      "severity": "severe",
+      "similar_diseases": [
+        "Virus mosaic"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rice",
+      "disease_name": "Rice Blast",
+      "cause": "Magnaporthe oryzae",
+      "symptoms": "spindle-shaped gray centers with brown margins",
+      "visual_features": "diamond/spindle lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Brown Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rice",
+      "disease_name": "Bacterial Leaf Blight",
+      "cause": "Xanthomonas oryzae pv. oryzae",
+      "symptoms": "long yellow to straw-colored lesions from leaf tips/margins",
+      "visual_features": "water-soaked streaks becoming pale",
+      "severity": "severe",
+      "similar_diseases": [
+        "Sheath Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rice",
+      "disease_name": "Sheath Blight",
+      "cause": "Rhizoctonia solani",
+      "symptoms": "oval green-gray lesions on sheath and lower leaves",
+      "visual_features": "banded lesions near water line",
+      "severity": "severe",
+      "similar_diseases": [
+        "Leaf Blast"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rice",
+      "disease_name": "Brown Spot",
+      "cause": "Bipolaris oryzae",
+      "symptoms": "circular brown spots with gray centers",
+      "visual_features": "many discrete brown spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Rice Blast"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rice",
+      "disease_name": "Tungro",
+      "cause": "rice tungro viruses",
+      "symptoms": "yellow-orange discoloration and stunting",
+      "visual_features": "uniform yellow-orange foliage",
+      "severity": "severe",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Leaf Rust",
+      "cause": "Puccinia triticina",
+      "symptoms": "orange-brown round pustules",
+      "visual_features": "scattered orange pustules",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Stripe Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Stripe Rust",
+      "cause": "Puccinia striiformis",
+      "symptoms": "yellow-orange pustules arranged in stripes",
+      "visual_features": "linear yellow-orange bands",
+      "severity": "severe",
+      "similar_diseases": [
+        "Leaf Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Stem Rust",
+      "cause": "Puccinia graminis",
+      "symptoms": "reddish-brown elongated pustules on stems and leaves",
+      "visual_features": "elongated rust pustules",
+      "severity": "severe",
+      "similar_diseases": [
+        "Leaf Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Powdery Mildew",
+      "cause": "Blumeria graminis",
+      "symptoms": "white powdery fungal coating",
+      "visual_features": "white patches on leaf surface",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Septoria Leaf Blotch",
+      "cause": "Zymoseptoria tritici",
+      "symptoms": "brown/tan elongated lesions with dark specks",
+      "visual_features": "rectangular to elongated lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Tan Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Wheat",
+      "disease_name": "Tan Spot",
+      "cause": "Pyrenophora tritici-repentis",
+      "symptoms": "tan lesions with darker centers",
+      "visual_features": "lens-shaped tan spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Septoria Leaf Blotch"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Northern Corn Leaf Blight",
+      "cause": "Exserohilum turcicum",
+      "symptoms": "long cigar-shaped gray-green lesions",
+      "visual_features": "large elongated lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Southern Corn Leaf Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Southern Corn Leaf Blight",
+      "cause": "Bipolaris maydis",
+      "symptoms": "small reddish-brown elongated lesions",
+      "visual_features": "narrow brown lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Northern Corn Leaf Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Common Rust",
+      "cause": "Puccinia sorghi",
+      "symptoms": "reddish-brown pustules",
+      "visual_features": "raised rust pustules on both leaf surfaces",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Southern Corn Leaf Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Gray Leaf Spot",
+      "cause": "Cercospora zeae-maydis",
+      "symptoms": "rectangular gray/tan lesions between veins",
+      "visual_features": "parallel-sided lesions bounded by veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Northern Corn Leaf Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Tar Spot",
+      "cause": "Phyllachora maydis",
+      "symptoms": "small black shiny raised spots",
+      "visual_features": "tar-like black dots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Maize",
+      "disease_name": "Downy Mildew",
+      "cause": "Peronosclerospora spp.",
+      "symptoms": "yellow stripes and downy growth",
+      "visual_features": "chlorotic striping",
+      "severity": "severe",
+      "similar_diseases": [
+        "Gray Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Chilli/Pepper",
+      "disease_name": "Bacterial Spot",
+      "cause": "Xanthomonas spp.",
+      "symptoms": "small dark water-soaked spots",
+      "visual_features": "brown-black lesions with halos",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Cercospora Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Chilli/Pepper",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum spp.",
+      "symptoms": "dark necrotic lesions",
+      "visual_features": "sunken dark lesions, mainly fruit",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Chilli/Pepper",
+      "disease_name": "Mosaic Virus",
+      "cause": "Pepper mosaic viruses",
+      "symptoms": "mottled light and dark green leaves",
+      "visual_features": "mosaic pattern and distortion",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Leaf Curl Virus"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Chilli/Pepper",
+      "disease_name": "Leaf Curl Virus",
+      "cause": "begomoviruses",
+      "symptoms": "curling, yellowing and reduced leaves",
+      "visual_features": "upward/downward curling with stunting",
+      "severity": "severe",
+      "similar_diseases": [
+        "Mosaic Virus"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cotton",
+      "disease_name": "Bacterial Blight",
+      "cause": "Xanthomonas citri pv. malvacearum",
+      "symptoms": "angular dark spots and vein blackening",
+      "visual_features": "angular lesions along veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Alternaria Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cotton",
+      "disease_name": "Alternaria Leaf Spot",
+      "cause": "Alternaria spp.",
+      "symptoms": "brown circular spots with concentric rings",
+      "visual_features": "target-like lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Cercospora Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cotton",
+      "disease_name": "Cercospora Leaf Spot",
+      "cause": "Cercospora spp.",
+      "symptoms": "circular reddish-brown lesions",
+      "visual_features": "gray/brown round spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Alternaria Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cotton",
+      "disease_name": "Cotton Leaf Curl Virus",
+      "cause": "begomovirus complex",
+      "symptoms": "leaf curling, vein swelling and thickening",
+      "visual_features": "upward curling and enations",
+      "severity": "severe",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Grape",
+      "disease_name": "Downy Mildew",
+      "cause": "Plasmopara viticola",
+      "symptoms": "yellow oil spots and white growth underneath",
+      "visual_features": "yellow angular patches; downy underside",
+      "severity": "severe",
+      "similar_diseases": [
+        "Powdery Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Grape",
+      "disease_name": "Powdery Mildew",
+      "cause": "Erysiphe necator",
+      "symptoms": "white powdery coating",
+      "visual_features": "white dusty growth",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Grape",
+      "disease_name": "Black Rot",
+      "cause": "Guignardia bidwellii",
+      "symptoms": "brown circular lesions; black fruiting bodies",
+      "visual_features": "tan/brown leaf spots with black dots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Anthracnose"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Grape",
+      "disease_name": "Anthracnose",
+      "cause": "Elsinoe ampelina",
+      "symptoms": "dark circular lesions with defined margins",
+      "visual_features": "small dark spots with pale centers",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Black Rot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Mango",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum gloeosporioides complex",
+      "symptoms": "black/brown irregular lesions and necrosis",
+      "visual_features": "dark irregular spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Canker"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Mango",
+      "disease_name": "Powdery Mildew",
+      "cause": "Oidium mangiferae",
+      "symptoms": "white powdery growth",
+      "visual_features": "white coating on young leaves/flowers",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Sooty Mold"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Mango",
+      "disease_name": "Bacterial Canker",
+      "cause": "Xanthomonas citri pv. mangiferaeindicae",
+      "symptoms": "dark raised lesions, cracking and gum exudation",
+      "visual_features": "angular black lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Anthracnose"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Mango",
+      "disease_name": "Sooty Mold",
+      "cause": "Capnodium spp.",
+      "symptoms": "black superficial coating",
+      "visual_features": "sooty black film on leaf",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Powdery Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Citrus",
+      "disease_name": "Citrus Canker",
+      "cause": "Xanthomonas citri",
+      "symptoms": "raised corky lesions with yellow halos",
+      "visual_features": "rough circular raised spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Greasy Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Citrus",
+      "disease_name": "Greasy Spot",
+      "cause": "Zasmidium citri-griseum",
+      "symptoms": "dark greasy-looking spots",
+      "visual_features": "brown-black lesions with yellowing",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Citrus Canker"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Citrus",
+      "disease_name": "Citrus Black Spot",
+      "cause": "Phyllosticta citricarpa",
+      "symptoms": "black spots with halos",
+      "visual_features": "small black fruiting spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Greasy Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Citrus",
+      "disease_name": "Huanglongbing",
+      "cause": "Candidatus Liberibacter spp.",
+      "symptoms": "blotchy asymmetrical yellowing",
+      "visual_features": "mottled yellow-green pattern not symmetric across veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Banana",
+      "disease_name": "Black Sigatoka",
+      "cause": "Pseudocercospora fijiensis",
+      "symptoms": "dark streaks progressing to black lesions",
+      "visual_features": "linear dark streaks and necrosis",
+      "severity": "severe",
+      "similar_diseases": [
+        "Yellow Sigatoka"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Banana",
+      "disease_name": "Yellow Sigatoka",
+      "cause": "Pseudocercospora musae",
+      "symptoms": "yellow/brown streaks and lesions",
+      "visual_features": "yellow-brown linear spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Black Sigatoka"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Banana",
+      "disease_name": "Banana Bunchy Top Virus",
+      "cause": "Banana bunchy top virus",
+      "symptoms": "narrow upright leaves and bunchy growth",
+      "visual_features": "dark green margins with rosetting",
+      "severity": "severe",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Papaya",
+      "disease_name": "Papaya Ringspot Virus",
+      "cause": "Papaya ringspot virus",
+      "symptoms": "mosaic/mottling and ring patterns",
+      "visual_features": "mosaic leaf pattern; distorted leaves",
+      "severity": "severe",
+      "similar_diseases": [
+        "Mosaic Virus"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Papaya",
+      "disease_name": "Powdery Mildew",
+      "cause": "Oidium caricae",
+      "symptoms": "white powdery growth",
+      "visual_features": "white patches",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Papaya",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum spp.",
+      "symptoms": "dark sunken lesions",
+      "visual_features": "brown-black necrotic spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Pomegranate",
+      "disease_name": "Bacterial Blight",
+      "cause": "Xanthomonas axonopodis pv. punicae",
+      "symptoms": "brown/black spots, cracking and necrosis",
+      "visual_features": "dark irregular lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Pomegranate",
+      "disease_name": "Leaf Spot",
+      "cause": "Cercospora/other fungi",
+      "symptoms": "circular brown lesions",
+      "visual_features": "discrete brown spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Pomegranate",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum spp.",
+      "symptoms": "dark lesions and necrosis",
+      "visual_features": "irregular dark spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Groundnut/Peanut",
+      "disease_name": "Early Leaf Spot",
+      "cause": "Cercospora arachidicola",
+      "symptoms": "small brown spots with yellow halos",
+      "visual_features": "round brown lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Late Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Groundnut/Peanut",
+      "disease_name": "Late Leaf Spot",
+      "cause": "Nothopassalora personata",
+      "symptoms": "dark brown to black spots",
+      "visual_features": "dark spots often without prominent halo",
+      "severity": "severe",
+      "similar_diseases": [
+        "Early Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Groundnut/Peanut",
+      "disease_name": "Rust",
+      "cause": "Puccinia arachidis",
+      "symptoms": "orange-brown pustules",
+      "visual_features": "raised rust pustules, especially underside",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Soybean",
+      "disease_name": "Soybean Rust",
+      "cause": "Phakopsora pachyrhizi",
+      "symptoms": "small tan/brown lesions with rust pustules",
+      "visual_features": "tiny pustules on underside",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Soybean",
+      "disease_name": "Bacterial Blight",
+      "cause": "Pseudomonas syringae pv. glycinea",
+      "symptoms": "angular brown lesions",
+      "visual_features": "water-soaked/angular spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Septoria Brown Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Soybean",
+      "disease_name": "Septoria Brown Spot",
+      "cause": "Septoria glycines",
+      "symptoms": "small irregular brown spots",
+      "visual_features": "many brown spots on lower leaves",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Soybean",
+      "disease_name": "Downy Mildew",
+      "cause": "Peronospora manshurica",
+      "symptoms": "pale yellow patches with gray growth below",
+      "visual_features": "yellow upper patches; gray underside",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Powdery Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Okra",
+      "disease_name": "Yellow Vein Mosaic Virus",
+      "cause": "begomovirus complex",
+      "symptoms": "yellow veins forming a network",
+      "visual_features": "bright yellow vein pattern",
+      "severity": "severe",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Okra",
+      "disease_name": "Powdery Mildew",
+      "cause": "Erysiphe spp.",
+      "symptoms": "white powdery coating",
+      "visual_features": "white patches",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Okra",
+      "disease_name": "Cercospora Leaf Spot",
+      "cause": "Cercospora spp.",
+      "symptoms": "brown/gray leaf spots",
+      "visual_features": "round to irregular lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cucumber",
+      "disease_name": "Downy Mildew",
+      "cause": "Pseudoperonospora cubensis",
+      "symptoms": "angular yellow lesions restricted by veins",
+      "visual_features": "angular yellow-green patches",
+      "severity": "severe",
+      "similar_diseases": [
+        "Powdery Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cucumber",
+      "disease_name": "Powdery Mildew",
+      "cause": "Podosphaera xanthii complex",
+      "symptoms": "white powdery patches",
+      "visual_features": "white fungal coating",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cucumber",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum orbiculare",
+      "symptoms": "brown circular lesions",
+      "visual_features": "tan/brown spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Angular Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cucumber",
+      "disease_name": "Angular Leaf Spot",
+      "cause": "Pseudomonas syringae pv. lachrymans",
+      "symptoms": "angular water-soaked lesions",
+      "visual_features": "vein-bounded spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cucumber",
+      "disease_name": "Mosaic Virus",
+      "cause": "cucurbit mosaic viruses",
+      "symptoms": "mosaic pattern and distortion",
+      "visual_features": "light/dark green mottling",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Nutrient deficiency"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Onion",
+      "disease_name": "Downy Mildew",
+      "cause": "Peronospora destructor",
+      "symptoms": "pale elongated patches with gray-purple growth",
+      "visual_features": "long pale lesions; downy growth",
+      "severity": "severe",
+      "similar_diseases": [
+        "Purple Blotch"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Onion",
+      "disease_name": "Purple Blotch",
+      "cause": "Alternaria porri",
+      "symptoms": "purple-brown elongated lesions",
+      "visual_features": "concentric purple lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Stemphylium Leaf Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Onion",
+      "disease_name": "Stemphylium Leaf Blight",
+      "cause": "Stemphylium vesicarium",
+      "symptoms": "dark brown/black elongated lesions",
+      "visual_features": "dark elongated patches",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Purple Blotch"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Garlic",
+      "disease_name": "Rust",
+      "cause": "Puccinia allii",
+      "symptoms": "orange/yellow rust pustules",
+      "visual_features": "numerous raised rust spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Purple Blotch"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Garlic",
+      "disease_name": "Purple Blotch",
+      "cause": "Alternaria porri",
+      "symptoms": "purple-brown leaf lesions",
+      "visual_features": "elongated purple-brown lesions",
+      "severity": "severe",
+      "similar_diseases": [
+        "Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Brinjal/Eggplant",
+      "disease_name": "Phomopsis Blight",
+      "cause": "Diaporthe vexans",
+      "symptoms": "brown circular lesions and fruit rot",
+      "visual_features": "round necrotic leaf lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Cercospora Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Brinjal/Eggplant",
+      "disease_name": "Cercospora Leaf Spot",
+      "cause": "Cercospora spp.",
+      "symptoms": "gray/brown circular spots",
+      "visual_features": "round lesions with pale centers",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Phomopsis Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Brinjal/Eggplant",
+      "disease_name": "Bacterial Wilt",
+      "cause": "Ralstonia solanacearum",
+      "symptoms": "rapid wilting and yellowing",
+      "visual_features": "wilting without characteristic leaf spots",
+      "severity": "severe",
+      "similar_diseases": [
+        "Fusarium Wilt"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cabbage/Cauliflower",
+      "disease_name": "Alternaria Leaf Spot",
+      "cause": "Alternaria brassicae",
+      "symptoms": "circular brown spots with concentric rings",
+      "visual_features": "target-like lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cabbage/Cauliflower",
+      "disease_name": "Downy Mildew",
+      "cause": "Hyaloperonospora parasitica",
+      "symptoms": "yellow patches with gray growth",
+      "visual_features": "yellow upper surface; downy underside",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Alternaria Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Cabbage/Cauliflower",
+      "disease_name": "Black Rot",
+      "cause": "Xanthomonas campestris pv. campestris",
+      "symptoms": "V-shaped yellow/brown lesions from leaf margins",
+      "visual_features": "V-shaped lesions and blackened veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Alternaria Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rose",
+      "disease_name": "Black Spot",
+      "cause": "Diplocarpon rosae",
+      "symptoms": "black circular spots with yellowing",
+      "visual_features": "black round lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Cercospora Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rose",
+      "disease_name": "Powdery Mildew",
+      "cause": "Podosphaera pannosa",
+      "symptoms": "white powdery growth",
+      "visual_features": "white coating and distorted young leaves",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Downy Mildew"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rose",
+      "disease_name": "Rust",
+      "cause": "Phragmidium spp.",
+      "symptoms": "orange/rust-colored pustules",
+      "visual_features": "yellow-orange pustules, often underside",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Black Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Rose",
+      "disease_name": "Downy Mildew",
+      "cause": "Peronospora sparsa",
+      "symptoms": "purple/red angular lesions",
+      "visual_features": "angular purple-brown patches",
+      "severity": "severe",
+      "similar_diseases": [
+        "Black Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Bean",
+      "disease_name": "Common Bean Rust",
+      "cause": "Uromyces appendiculatus",
+      "symptoms": "rust-colored pustules",
+      "visual_features": "orange-brown raised pustules",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Angular Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Bean",
+      "disease_name": "Angular Leaf Spot",
+      "cause": "Pseudocercospora griseola",
+      "symptoms": "angular brown lesions",
+      "visual_features": "vein-bounded angular spots",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Common Bean Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Bean",
+      "disease_name": "Anthracnose",
+      "cause": "Colletotrichum lindemuthianum",
+      "symptoms": "dark vein/leaf lesions",
+      "visual_features": "black-brown lesions along veins",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Bean",
+      "disease_name": "Bacterial Blight",
+      "cause": "Xanthomonas phaseoli complex",
+      "symptoms": "water-soaked spots becoming brown",
+      "visual_features": "irregular brown lesions with yellow halos",
+      "severity": "severe",
+      "similar_diseases": [
+        "Angular Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tea",
+      "disease_name": "Blister Blight",
+      "cause": "Exobasidium vexans",
+      "symptoms": "pale translucent spots/blisters",
+      "visual_features": "raised pale lesions, often underside",
+      "severity": "severe",
+      "similar_diseases": [
+        "Red Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Tea",
+      "disease_name": "Red Rust",
+      "cause": "Cephaleuros parasiticus",
+      "symptoms": "orange/red algal spots",
+      "visual_features": "rust-orange circular patches",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Blister Blight"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Coffee",
+      "disease_name": "Coffee Leaf Rust",
+      "cause": "Hemileia vastatrix",
+      "symptoms": "orange-yellow powdery pustules",
+      "visual_features": "orange pustules on underside with yellow patches",
+      "severity": "severe",
+      "similar_diseases": [
+        "Cercospora Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Coffee",
+      "disease_name": "Cercospora Leaf Spot",
+      "cause": "Cercospora coffeicola",
+      "symptoms": "brown spots with pale centers",
+      "visual_features": "round brown lesions with halos",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Coffee Leaf Rust"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Apple",
+      "disease_name": "Apple Scab",
+      "cause": "Venturia inaequalis",
+      "symptoms": "olive-green to brown irregular spots",
+      "visual_features": "velvety olive lesions",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Frogeye Leaf Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Apple",
+      "disease_name": "Fire Blight",
+      "cause": "Erwinia amylovora",
+      "symptoms": "water-soaked shoots followed by black scorched foliage",
+      "visual_features": "brown-black wilted leaves",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Apple",
+      "disease_name": "Powdery Mildew",
+      "cause": "Podosphaera leucotricha",
+      "symptoms": "white powdery coating",
+      "visual_features": "white growth on young leaves",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Apple Scab"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Apple",
+      "disease_name": "Cedar Apple Rust",
+      "cause": "Gymnosporangium juniperi-virginianae",
+      "symptoms": "orange-yellow spots",
+      "visual_features": "bright orange lesions with later structures",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Apple Scab"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Peach",
+      "disease_name": "Peach Leaf Curl",
+      "cause": "Taphrina deformans",
+      "symptoms": "thickened curled red/purple leaves",
+      "visual_features": "strong leaf distortion and puckering",
+      "severity": "severe",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Peach",
+      "disease_name": "Bacterial Spot",
+      "cause": "Xanthomonas arboricola pv. pruni",
+      "symptoms": "small dark spots and shot holes",
+      "visual_features": "tiny lesions that may drop out",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Peach Leaf Curl"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    },
+    {
+      "crop": "Stone Fruit",
+      "disease_name": "Shot Hole Disease",
+      "cause": "Wilsonomyces carpophilus",
+      "symptoms": "circular lesions that fall out",
+      "visual_features": "many small holes in leaves",
+      "severity": "moderate",
+      "similar_diseases": [
+        "Bacterial Spot"
+      ],
+      "confidence_rule": "Require visible characteristic symptoms and crop compatibility; do not classify from crop name alone."
+    }
+  ]
+}
