@@ -151,7 +151,7 @@ def predict():
 
     # 3. Strict 7-Stage Diagnostic Pipeline
     try:
-        diag = model_service.diagnose(image_tensor)
+        diag = model_service.diagnose(image_tensor, crop_hint=crop_hint)
     except Exception as e:
         logger.error(f"Diagnostic pipeline execution failed: {e}")
         return jsonify({"success": False, "error": f"Diagnostic pipeline error: {str(e)}"}), 500
@@ -231,7 +231,8 @@ def sample_test(disease_id: str):
     if os.path.exists(sample_file):
         try:
             tensor = preprocess_for_model(sample_file)
-            diag = model_service.diagnose(tensor)
+            hint_crop = disease_id.split("___")[0].replace("Corn_(maize)", "Maize").replace("Pepper,_bell", "Chilli/Pepper")
+            diag = model_service.diagnose(tensor, crop_hint=hint_crop)
             if diag["success"]:
                 advisory_data = get_advisory(diag.get("class_id", disease_id), crop=diag.get("crop"))
                 return jsonify({
